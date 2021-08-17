@@ -1,8 +1,10 @@
-import 'package:amplify_flutter/pages/camera_flow_page.dart';
-import 'package:amplify_flutter/pages/login_page.dart';
-import 'package:amplify_flutter/pages/sign_up_page.dart';
-import 'package:amplify_flutter/pages/verification_page.dart';
-import 'package:amplify_flutter/service/auth/auth_service.dart';
+import 'package:amplify_flutter/amplify.dart';
+import 'package:amplify_flutter_example/amplifyconfiguration.dart';
+import 'package:amplify_flutter_example/pages/camera_flow_page.dart';
+import 'package:amplify_flutter_example/pages/login_page.dart';
+import 'package:amplify_flutter_example/pages/sign_up_page.dart';
+import 'package:amplify_flutter_example/pages/verification_page.dart';
+import 'package:amplify_flutter_example/service/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,9 +21,20 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   final _authService = AuthService();
 
+  void _configureAmplify() async {
+    try {
+      await Amplify.configure(amplifyconfig);
+      print('Successfully configured Amplify 🎉');
+    } catch (e) {
+      print('Could not configure Amplify ☠️');
+      print(e);
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+    _configureAmplify();
     _authService.showLogin();
   }
 

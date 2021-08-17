@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:amplify_flutter/service/auth/auth_credentials.dart';
+import 'package:amplify_flutter_example/service/auth/auth_credentials.dart';
 
 enum AuthFlowStatus { login, signUp, verification, session }
 

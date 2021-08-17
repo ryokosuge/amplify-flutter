@@ -1,6 +1,6 @@
 {
-    "name": "amplify_flutter",
-    "short_name": "amplify_flutter",
+    "name": "amplify_flutter_example",
+    "short_name": "amplify_flutter_example",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

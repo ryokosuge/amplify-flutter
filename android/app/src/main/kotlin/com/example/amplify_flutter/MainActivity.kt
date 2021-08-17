@@ -1,4 +1,4 @@
-package com.example.amplify_flutter
+package com.example.amplify_flutter_example
 
 import io.flutter.embedding.android.FlutterActivity
 

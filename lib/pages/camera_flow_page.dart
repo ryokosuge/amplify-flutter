@@ -1,5 +1,5 @@
-import 'package:amplify_flutter/pages/camera_page.dart';
-import 'package:amplify_flutter/pages/gallery_page.dart';
+import 'package:amplify_flutter_example/pages/camera_page.dart';
+import 'package:amplify_flutter_example/pages/gallery_page.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 

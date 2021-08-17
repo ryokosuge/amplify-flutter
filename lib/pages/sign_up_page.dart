@@ -1,4 +1,4 @@
-import 'package:amplify_flutter/service/auth/auth_credentials.dart';
+import 'package:amplify_flutter_example/service/auth/auth_credentials.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {

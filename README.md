@@ -1,4 +1,4 @@
-# amplify_flutter
+# amplify_flutter_example
 
 A new Flutter project.
 
