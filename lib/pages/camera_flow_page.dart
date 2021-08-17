@@ -27,6 +27,10 @@ class _CameraFlowPageState extends State<CameraFlowPage> {
 
   void _getCamera() async {
     final cameraList = await availableCameras();
+    if (cameraList.isEmpty) {
+      return;
+    }
+
     setState(() {
       final firstCamera = cameraList.first;
       this._camera = firstCamera;

@@ -1,3 +1,4 @@
+import 'package:amplify_flutter/pages/camera_flow_page.dart';
 import 'package:amplify_flutter/pages/login_page.dart';
 import 'package:amplify_flutter/pages/sign_up_page.dart';
 import 'package:amplify_flutter/pages/verification_page.dart';
@@ -56,6 +57,12 @@ class _AppState extends State<App> {
                   MaterialPage(
                     child: VerificationPage(
                       didProvideVerificationCode: _authService.verifyCode,
+                    ),
+                  ),
+                if (snapshot.data?.authFlowStatus == AuthFlowStatus.session)
+                  MaterialPage(
+                    child: CameraFlowPage(
+                      shouldLogOut: _authService.logOut,
                     ),
                   ),
               ],

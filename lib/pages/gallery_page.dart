@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 
 class GalleryPage extends StatelessWidget {
@@ -26,6 +24,27 @@ class GalleryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Gallery'),
+        actions: [
+          // Log Out Button
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: GestureDetector(
+              child: Icon(Icons.logout),
+              onTap: shouldLogOut,
+            ),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.camera_alt),
+        onPressed: shouldShowCamera,
+      ),
+      body: Container(
+        child: _galleryGrid(),
+      ),
+    );
   }
 }
