@@ -1,5 +1,6 @@
 import 'package:amplify_flutter_example/pages/camera_page.dart';
 import 'package:amplify_flutter_example/pages/gallery_page.dart';
+import 'package:amplify_flutter_example/service/storage/storage_service.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class CameraFlowPage extends StatefulWidget {
 
 class _CameraFlowPageState extends State<CameraFlowPage> {
   CameraDescription? _camera;
+  StorageService _storageService = StorageService();
   bool _shouldShowCamera = false;
 
   void _toggleCameraOpen(bool isOpen) {
@@ -46,16 +48,20 @@ class _CameraFlowPageState extends State<CameraFlowPage> {
           shouldShowCamera: () {
             this._toggleCameraOpen(true);
           },
+          imageUrlsController: _storageService.imageUrlsController,
         ),
       ),
       // Show Camera Page
       if (_camera != null && _shouldShowCamera)
         MaterialPage(
-            child: CameraPage(
-                camera: _camera!,
-                didProvideImagePath: (imagePath) {
-                  this._toggleCameraOpen(false);
-                })),
+          child: CameraPage(
+            camera: _camera!,
+            didProvideImagePath: (imagePath) {
+              this._toggleCameraOpen(false);
+              this._storageService.uploadImageAtPath(imagePath);
+            },
+          ),
+        ),
     ];
   }
 
@@ -63,6 +69,7 @@ class _CameraFlowPageState extends State<CameraFlowPage> {
   void initState() {
     super.initState();
     _getCamera();
+    _storageService.getImages();
   }
 
   @override

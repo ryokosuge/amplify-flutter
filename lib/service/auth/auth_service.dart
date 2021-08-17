@@ -26,7 +26,10 @@ class AuthService {
         final state = AuthState(authFlowStatus: AuthFlowStatus.login);
         authStateController.add(state);
       }
-    } catch (e) {}
+    } catch (e) {
+      final state = AuthState(authFlowStatus: AuthFlowStatus.login);
+      authStateController.add(state);
+    }
   }
 
   void showSignUp() {

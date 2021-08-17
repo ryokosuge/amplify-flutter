@@ -22,5 +22,11 @@
         ]
       }
     }
+  },
+  "storage": {
+    "amplifyflutter": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

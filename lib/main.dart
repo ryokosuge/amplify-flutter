@@ -6,6 +6,7 @@ import 'package:amplify_flutter_example/pages/login_page.dart';
 import 'package:amplify_flutter_example/pages/sign_up_page.dart';
 import 'package:amplify_flutter_example/pages/verification_page.dart';
 import 'package:amplify_flutter_example/service/auth/auth_service.dart';
+import 'package:amplify_storage_s3/amplify_storage_s3.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,14 +25,17 @@ class _AppState extends State<App> {
 
   void _configureAmplify() async {
     try {
-      await Amplify.addPlugin(AmplifyAuthCognito());
+      await Amplify.addPlugins([
+        AmplifyAuthCognito(),
+        AmplifyStorageS3(),
+      ]);
       await Amplify.configure(amplifyconfig);
       print('Successfully configured Amplify 🎉');
+      _authService.checkAuthStatus();
     } catch (e) {
       print('Could not configure Amplify ☠️');
       print(e);
     }
-    _authService.checkAuthStatus();
   }
 
   @override

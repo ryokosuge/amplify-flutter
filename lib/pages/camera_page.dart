@@ -53,14 +53,15 @@ class _CameraPageState extends State<CameraPage> {
       body: FutureBuilder<void>(
         future: _initializeControllerFuture,
         builder: (context, snapshot) {
-          if (this._controller != null &&
-              snapshot.connectionState == ConnectionState.done) {
-            return CameraPreview(_controller!);
-          } else {
+          final controller = this._controller;
+          if (controller == null ||
+              snapshot.connectionState != ConnectionState.done) {
             return Center(
               child: CircularProgressIndicator(),
             );
           }
+
+          return CameraPreview(controller);
         },
       ),
       floatingActionButton: FloatingActionButton(
@@ -68,5 +69,11 @@ class _CameraPageState extends State<CameraPage> {
         onPressed: _takePicture,
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    super.dispose();
   }
 }
