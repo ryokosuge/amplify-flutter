@@ -10,6 +10,11 @@
       "StackName": "amplify-photogalleryflutter-dev-111830",
       "StackId": "arn:aws:cloudformation:ap-northeast-1:573423333442:stack/amplify-photogalleryflutter-dev-111830/6c3c1860-ff01-11eb-b0e3-065736351c23",
       "AmplifyAppId": "d26eix4y9wm75d"
+    },
+    "categories": {
+      "auth": {
+        "photogalleryflutter347baf63": {}
+      }
     }
   }
 }
