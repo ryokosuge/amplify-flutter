@@ -1,6 +1,16 @@
 # amplify_flutter_example
 
-A new Flutter project.
+AWS Amplify x Flutterのハンズオンをやってみました
+
+https://aws.amazon.com/jp/getting-started/hands-on/build-flutter-app-amplify/
+
+```
+$ flutter --version
+Flutter 2.2.3 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision f4abaa0735 (7 weeks ago) • 2021-07-01 12:46:11 -0700
+Engine • revision 241c87ad80
+Tools • Dart 2.13.4
+```
 
 ## Setup Amplfy
 
